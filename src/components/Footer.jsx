@@ -1,4 +1,4 @@
-import foto from "../assets/footer-photo.jpg"
+import footerPhoto  from "../assets/footer-photo.jpg"
 import avion from "../assets/avion.webp"
 
 function Footer() {
