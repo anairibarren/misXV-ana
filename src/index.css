@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Allura';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/allura/v23/9oRPNYsQpS4zjuA_iwgT.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aX8.ttf) format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #0f172a;
+  min-height: 100vh;
+  background-color: white;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  position: relative;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ANIMACION ENTRADA DESDE LA IZQUIERDA */
+
+@keyframes slideLeftFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeftFade 0.8s ease-out forwards;
+}
+
+
+
+/* ENTRADA DESDE IZQUIERDA */
+
+@keyframes slideLeftFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeftFade 0.8s ease-out forwards;
+}
+
+
+
+/* ENTRADA DESDE DERECHA */
+
+@keyframes slideRightFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: slideRightFade 0.8s ease-out forwards;
+}
