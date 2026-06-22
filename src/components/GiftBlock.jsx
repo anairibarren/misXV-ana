@@ -1,61 +1,41 @@
 import { useState, useEffect } from "react"
-
 import gift from "../assets/gift.GIF"
 
 function GiftModal({ isOpen, onClose }) {
 
-  const alias = "Jua.Iribarren"
-
+  const alias = "anaprina"
   const banco = "Mercado Pago"
 
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-
     try {
-
       await navigator.clipboard.writeText(alias)
 
       setCopied(true)
 
       setTimeout(() => {
-
         setCopied(false)
-
       }, 2000)
 
     } catch (err) {
-
       console.error("Error al copiar")
-
     }
-
   }
 
-  // CERRAR CON ESC
-
   useEffect(() => {
-
     const handleKey = (e) => {
-
       if (e.key === "Escape") {
-
         onClose()
-
       }
-
     }
 
     if (isOpen) {
-
       document.addEventListener("keydown", handleKey)
-
     }
 
     return () => {
-
       document.removeEventListener("keydown", handleKey)
-
     }
 
   }, [isOpen, onClose])
@@ -63,16 +43,11 @@ function GiftModal({ isOpen, onClose }) {
   if (!isOpen) return null
 
   return (
-
     <div
       onClick={onClose}
       className="
-        fixed
-        inset-0
-        z-50
-        flex
-        items-center
-        justify-center
+        fixed inset-0 z-50
+        flex items-center justify-center
         bg-black/60
         backdrop-blur-sm
         px-4
@@ -81,148 +56,89 @@ function GiftModal({ isOpen, onClose }) {
 
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[420px]"
+        className="w-full max-w-[420px]"
       >
 
-        {/* CUADRADO PRINCIPAL */}
-
+        {/* CAJA BEIGE (TODO DENTRO) */}
         <div
           className="
-            bg-[#1e2f5d]
-            rounded-[4px]
+            bg-[#C5BAA7]
+            rounded-[10px]
             px-8
             py-10
             text-center
-            shadow-xl
+            shadow-2xl
           "
+          style={{ fontFamily: "Montserrat, sans-serif" }}
         >
 
-          {/* CUADRO INTERNO */}
+          {/* ICONO */}
+          <img
+            src={gift}
+            alt="Regalo"
+            className="w-[70px] h-[70px] mx-auto mb-6"
+          />
 
-          <div
-            className="
-              border
-              border-white
-              px-6
-              py-10
-            "
-          >
+          {/* TITULO */}
+          <h3 className="text-[22px] font-semibold mb-6 text-white">
+            REGALO
+          </h3>
 
-            {/* GIFT */}
+          {/* INFO */}
+          <div className="space-y-6 text-white mb-8">
 
-            <img
-              src={gift}
-              alt="Regalo"
-              className="
-                w-[70px]
-                h-[70px]
-                object-contain
-                mx-auto
-                mb-6
-              "
-            />
+            <div>
+              <p className="text-lg">ALIAS:</p>
+              <p className="text-lg font-semibold">{alias}</p>
+            </div>
 
-            {/* TITULO */}
-
-            <h3
-              className="
-                text-[22px]
-                font-semibold
-                text-white
-                tracking-[0.2em]
-                mb-6
-              "
-              style={{
-                fontFamily: "Montserrat, sans-serif"
-              }}
-            >
-              REGALO
-            </h3>
-
-            {/* DATOS */}
-
-            <div className="space-y-6">
-
-              <div>
-
-                <p className="text-sm text-white/80">
-                  ALIAS:
-                </p>
-
-                <p className="text-lg text-white">
-                  {alias}
-                </p>
-
-              </div>
-
-              <div>
-
-                <p className="text-sm text-white/80">
-                  CUENTA:
-                </p>
-
-                <p className="text-lg text-white">
-                  {banco}
-                </p>
-
-              </div>
-
+            <div>
+              <p className="text-lg">CUENTA:</p>
+              <p className="text-lg font-semibold">{banco}</p>
             </div>
 
           </div>
 
-          {/* BOTON COPIAR */}
-
+          {/* BOTÓN COPIAR (AHORA DENTRO) */}
           <button
             onClick={handleCopy}
             className="
-              mt-8
-              w-full
+              w-[80%]
               py-3
-              bg-white
-              text-[#1e2f5d]
-              px-8
-              font-semibold
+              bg-[#E1DACF]
+              text-white
+              font-bold
               text-sm
-              tracking-[0.10rem]
-              uppercase              
-              rounded-full
+              uppercase
+              rounded-[15px]
+              shadow-md
             "
           >
             {copied ? "Alias copiado" : "Copiar alias"}
           </button>
 
-          {/* BOTON CERRAR */}
-
+          {/* BOTÓN CERRAR (DENTRO TAMBIÉN) */}
           <button
             onClick={onClose}
             className="
-              mt-4
-              w-full
-              border
-              border-white
-              text-white
-              text-md
-              px-8
+              mt-3
+              w-[80%]
               py-3
-              font-semibold
-              tracking-[0.10rem]
+              border border-white
+              text-white
+              font-bold
               text-sm
-              uppercase              
-              rounded-full
+              uppercase
+              rounded-[15px]
             "
           >
             Cerrar
           </button>
 
         </div>
-
       </div>
-
     </div>
-
   )
-
 }
 
 function GiftBlock() {
@@ -231,52 +147,18 @@ function GiftBlock() {
 
   return (
 
-    <section
-      id="gift"
-      className="
-        py-0
-        mb-8
-      "
-    >
+    <section>
 
-      {/* BLOQUE FRASE */}
+      {/* FRASE */}
+      <div className="py-16 px-6">
 
-      <div
-        className="
-          bg-white
-          py-16
-          px-6
-        "
-      >
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
 
-        <div
-          className="
-            max-w-4xl
-            mx-auto
-            flex
-            flex-col
-            items-center
-            text-center
-          "
-        >
-
-          {/* LINEA SUPERIOR */}
-
-          <div
-            className="
-              w-[90px]
-              h-[2px]
-              bg-[#1e2f5d]
-              rounded-full
-              mb-8
-            "
-          />
-
-          {/* TEXTO */}
+          <div className="w-[90px] h-[2px] bg-[#c5baa7] rounded-full mb-8" />
 
           <p
             className="
-              text-[#1e2f5d]
+              text-[#c5baa7]
               text-[20px]
               md:text-[28px]
               leading-[1.8]
@@ -289,36 +171,18 @@ function GiftBlock() {
             }}
           >
             Hagamos que sea una noche{" "}
-            <span className="font-extrabold">
+            <span className="font-extrabold text-[#c5baa7]">
               ¡inolvidable!
             </span>
           </p>
 
-          {/* LINEA INFERIOR */}
-
-          <div
-            className="
-              w-[90px]
-              h-[2px]
-              bg-[#1e2f5d]
-              rounded-full
-              mt-8
-            "
-          />
+          <div className="w-[90px] h-[2px] bg-[#c5baa7] rounded-full mt-8" />
 
         </div>
-
       </div>
 
-
       {/* BLOQUE REGALO */}
-
-      <div
-        className="
-          flex
-          justify-center
-        "
-      >
+      <div className="flex justify-center">
 
         <div
           className="
@@ -328,16 +192,15 @@ function GiftBlock() {
             px-6
             text-center
             py-12
+            bg-[#c5baa7]
           "
           style={{
-            backgroundColor: "#1e2f5d",
-            color: "#ffffff",
-            fontFamily: "Montserrat, sans-serif"
+            fontFamily: "Montserrat, sans-serif",
+            color: "white"
           }}
         >
 
           {/* ICONO */}
-
           <img
             src={gift}
             alt="Regalo"
@@ -353,49 +216,46 @@ function GiftBlock() {
           />
 
           {/* TITULO */}
-
           <h2
             className="
               text-[22px]
               md:text-[24px]
               font-semibold
-              tracking-[0.2em]
               mb-6
+              text-white
             "
           >
             REGALO
           </h2>
 
           {/* TEXTO */}
-
           <p
             className="
-              text-[16px]
+              text-[14px]
               md:text-[18px]
-              leading-[1.7]
-              space-y-2
-              max-w-[520px]
+              leading-[1.5]
+              max-w-[550px]
               mx-auto
+              text-white
             "
           >
-            Nada es más importante que tu presencia, pero si deseas hacerme un presente puedes depositarlo en la siguiente cuenta.
+            Habrá una urna en el salón para quien desee dejar un regalo presencial.
+            También podés dejar tu regalo mediante la cuenta de Mercado Pago.
           </p>
 
-          {/* BOTON */}
-
+          {/* BOTÓN */}
           <button
             onClick={() => setIsOpen(true)}
             className="
               mt-8
-              bg-white
-              text-[#1e2f5d]
+              bg-[#D4CCBC]
+              text-white
               px-8
               py-3
               font-bold
               text-sm
               tracking-[0.12em]
               uppercase
-              transition
               rounded-full
             "
           >
@@ -412,9 +272,7 @@ function GiftBlock() {
       />
 
     </section>
-
   )
-
 }
 
 export default GiftBlock

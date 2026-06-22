@@ -16,9 +16,8 @@ function InfoBlock({
 }) {
 
   return (
-
     <div
-      className={`
+      className="
         w-full
         rounded-none
         px-8
@@ -30,7 +29,7 @@ function InfoBlock({
         justify-center
         text-center
         transition
-      `}
+      "
       style={{
         backgroundColor: background,
         color: textColor,
@@ -39,7 +38,6 @@ function InfoBlock({
     >
 
       {/* ICONO */}
-
       <img
         src={image}
         alt={title}
@@ -54,7 +52,6 @@ function InfoBlock({
       />
 
       {/* TITULO */}
-
       <h3
         className="
           text-[20px]
@@ -67,23 +64,15 @@ function InfoBlock({
         {title}
       </h3>
 
-      {/* LINEA DIVISORA */}
-
+      {/* DIVISOR */}
       {showDivider && (
         <div
-          className="
-            w-[80px]
-            h-[2px]
-            my-4
-          "
-          style={{
-            backgroundColor: textColor
-          }}
+          className="w-[80px] h-[2px] rounded-full my-4"
+          style={{ backgroundColor: textColor }}
         />
       )}
 
       {/* CONTENIDO */}
-
       <div
         className="
           text-[16px]
@@ -95,23 +84,19 @@ function InfoBlock({
         {children}
       </div>
 
-      {/* BOTON */}
-
+      {/* BOTÓN */}
       {button && (
-
         <div className="w-full flex flex-col items-center">
-
-          {/* LINEA */}
 
           <div
             className="
               w-[100px]
               h-[4px]
-              bg-[#a0b8e1]
               mt-[14px]
               mb-[20px]
               mx-auto
               rounded-full
+              bg-[#c5baa7]
             "
           />
 
@@ -126,65 +111,42 @@ function InfoBlock({
               text-sm
               tracking-[0.12em]
               uppercase
-              transition
               rounded-full
             "
             style={{
-              backgroundColor:
-                background === "#ffffff"
-                  ? "#1e2f5d"
-                  : "#ffffff",
-
-              color:
-                background === "#ffffff"
-                  ? "#ffffff"
-                  : "#1e2f5d"
+              backgroundColor: "#E1DACF",
+              color: "white"
             }}
           >
             COMO LLEGAR
           </a>
 
         </div>
-
       )}
 
     </div>
-
   )
-
 }
 
 function InfoCards() {
 
   const [isVisible, setIsVisible] = useState(false)
-
   const sectionRef = useRef(null)
 
   useEffect(() => {
 
     const observer = new IntersectionObserver(
-
       ([entry]) => {
-
         if (entry.isIntersecting) {
-
           setIsVisible(true)
           observer.disconnect()
-
         }
-
       },
-
-      {
-        threshold: 0.2
-      }
-
+      { threshold: 0.2 }
     )
 
     if (sectionRef.current) {
-
       observer.observe(sectionRef.current)
-
     }
 
     return () => observer.disconnect()
@@ -192,11 +154,10 @@ function InfoCards() {
   }, [])
 
   return (
-
     <section
       id="info"
       ref={sectionRef}
-      className="py-0"
+      className="py-0 "
     >
 
       <div
@@ -213,81 +174,64 @@ function InfoCards() {
           Información del evento
         </h2>
 
-        {/* BLOQUE 1 — CUANDO */}
-
+        {/* CUÁNDO */}
         <InfoBlock
-          background="#1e2f5d"
-          textColor="#ffffff"
+          background="#c5baa7"
+          textColor="#FFFFFF"
           image={calendar}
           title="¿CUÁNDO?"
         >
-
-          <p>
-            10 DE OCTUBRE DE 2026
-          </p>
-
-          <p>
-            | 21:00hs |
-          </p>
-
+          <p>29 DE AGOSTO DE 2026</p>
+          <p>| 21:00 HS - 05:00 HS |</p>
         </InfoBlock>
 
-        {/* BLOQUE 2 — DONDE */}
-
+        {/* DÓNDE */}
         <InfoBlock
-          background="#ffffff"
-          textColor="#1e2f5d"
+          textColor="#c5baa7"
           image={pin}
           title="¿DÓNDE?"
           button={true}
-          link="https://maps.app.goo.gl/icPzJ4cVTqQ5YLLa7"
+          link="https://maps.app.goo.gl/dAyam8ZLhgbXVAoy6"
         >
-
-          <p>
-            H'OMARA EVENTOS
+          <p className="text-lg font-medium">
+            Malevo Eventos
           </p>
-
         </InfoBlock>
 
-        {/* BLOQUE 3 — DRESS CODE */}
-
+        {/* DRESS CODE */}
         <InfoBlock
-          background="#1e2f5d"
-          textColor="#ffffff"
+          background="#c5baa7"
+          textColor="#FFFFFF"
           image={diamond}
           title="DRESS CODE"
           showDivider={true}
         >
-
           <div className="space-y-3">
 
-            <p>
-              ELEGANTE SPORT
+            <p className="text-lg">
+              <span className="font-semibold uppercase">
+                ELEGANTE
+              </span>
             </p>
 
             <p
               className="
                 text-[15px]
                 md:text-[14px]
-                text-white
                 max-w-[340px]
                 mx-auto
               "
             >
-              Evitar los colores:
-              blanco, azul y plateado
+              Evitar el color azul.
             </p>
 
           </div>
-
         </InfoBlock>
 
       </div>
 
     </section>
-
   )
-
 }
 
 export default InfoCards

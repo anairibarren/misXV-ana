@@ -47,7 +47,7 @@ function Gate({
         items-center
         justify-center
         bg-white
-        text-[#1e2f5d]
+        text-[#D2C6AA]
         text-center
         px-6
         transition-opacity
@@ -71,7 +71,7 @@ function Gate({
           fontFamily: "Montserrat, sans-serif"
         }}
       >
-        Mis XV Juana
+        Mis XV Ana
       </h1>
 
       {/* FRASE */}
@@ -102,7 +102,7 @@ function Gate({
         className="
           px-10
           py-4
-          bg-[#1e2f5d]
+          bg-[#D2C6AA]
           text-white
           uppercase
           tracking-[0.15em]
@@ -117,11 +117,6 @@ function Gate({
           fontFamily: "Montserrat, sans-serif"
         }}
       >
-
-        <Icon
-          icon="mdi:airplane-takeoff"
-          width="22"
-        />
 
         {loading ? "Ingresando..." : "Ingresar"}
 

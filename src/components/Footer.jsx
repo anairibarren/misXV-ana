@@ -50,9 +50,9 @@ function Footer() {
 
         <p
           className="
-            text-[28px]
+            text-[30px]
             md:text-[32px]
-            text-[#1e2f5d]
+            text-[#C5BAA7]
             tracking-[0.2em]
             uppercase
             font-semibold

@@ -36,7 +36,7 @@ function Gallery() {
 
     <section
       id="galeria"
-      className=""
+      className="bg-[#F6F1E8]"
     >
 
       {/* FOTO */}
