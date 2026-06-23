@@ -10,8 +10,8 @@ function Footer() {
       {/* IMAGEN FULL WIDTH */}
 
       <img
-        src={foto}
-        alt="Juana"
+        src={footerPhoto}
+        alt="Ana"
         className="
           w-full
           h-auto
